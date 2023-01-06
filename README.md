@@ -36,7 +36,7 @@ This repo is meant to be used as a starting point for a user's own configuration
 * install ripgrep
   * ```brew install ripgrep```
 * install neovim
-  * If you are currently using neovim, backup your previous configuration, additional info here -> [FAQ](###FAQ)
+  * If you are currently using neovim, backup your previous configuration, additional info here -> [FAQ](#faq)
   * clone neovim_init from https://github.com/ddaugher/nvim_init into a directory of your choice
   * symbolically link your neovim_init directory to the neovim config location
     * ```ln -s ~/.config/nvim [install location]/nvim_init```
