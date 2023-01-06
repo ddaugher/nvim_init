@@ -24,7 +24,6 @@ This repo is meant to be used as a starting point for a user's own configuration
   * ```
     asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
     asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git
-    asdf plugin add neovim
     asdf install
     ```
   * if you want to change the installed versions, you can update the .tool-versions file prior to installation
@@ -41,6 +40,11 @@ This repo is meant to be used as a starting point for a user's own configuration
   * clone neovim_init from https://github.com/ddaugher/nvim_init into a directory of your choice
   * symbolically link your neovim_init directory to the neovim config location
     * ```ln -s [install directory]/nvim_init ~/.config/nvim```
+  * ```
+    asdf plugin add neovim
+    asdf install neovim stable
+    asdf global neovim stable
+    ```  
   * Start Neovim (`nvim`) from the command-line, installation will happen automatically
   * run `:PackerInstall` - ignore any error message about missing plugins, `:PackerInstall` will fix that shortly
   * Restart Neovim
