@@ -46,8 +46,9 @@ This repo is meant to be used as a starting point for a user's own configuration
     asdf global neovim stable
     ```  
   * Start Neovim (`nvim`) from the command-line, installation will happen automatically
-  * run `:PackerInstall` - ignore any error message about missing plugins, `:PackerInstall` will fix that shortly
+  * ignore any error message about missing plugins, `:PackerInstall` will fix that shortly
   * Restart Neovim
+  * you can check the health of neovim by ```:checkhealth```
 
 If there are language servers that you don't want to use, remove their configuration from your `core/plugin_config/lsp_config.lua` after copy and pasting (for example, in the mason configuration).
 
