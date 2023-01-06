@@ -67,7 +67,14 @@ vim.keymap.set('n', '<c-n>', ':NvimTreeFindFileToggle<CR>')
 ```
 
 ### FAQ
-
- * What should I do if I already have a pre-existing neovim configuration?
+  * How do I find all of the available keymaps currently defined?
+    * you can see available keymaps via ```:Telescope keymaps```
+  * How do I config/instal/remove language servers?
+    * you can see/manage available language servers via ```:Mason```
+  * How are plugins managed?
+    * plugins are managed via Packer, https://github.com/wbthomason/packer.nvim
+  * What do I have to do if I make a change to the lua configuration?
+    * changes to the lua configuration will be automatically detected and applied
+  * What should I do if I already have a pre-existing neovim configuration?
      * You should back it up, then delete all files associated with it.
      * This includes your existing init.lua and the neovim files in `.local` which can be deleted with `rm -rf ~/.local/share/nvim/`
