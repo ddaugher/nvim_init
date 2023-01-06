@@ -99,8 +99,8 @@ local on_attach = function(_, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, '[W]orkspace [L]ist Folders')
 
-  nmap('S', "<cmd>lua require('spectre').open()<cr>", 'Open [S]pectre')
-  nmap('sw', "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", '[s]earch [w]ord')
+  -- nmap('S', "<cmd>lua require('spectre').open()<cr>", 'Open [S]pectre')
+  -- nmap('sw', "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", '[s]earch [w]ord')
   -- nmap('sf', ":lua require('spectre').open_file_search()<cr>", '[s]earch [f]ile')
 
   nmap('tc', "<cmd>lua require('neotest').run.run()<cr>", '[t]est [c]urrent test')
