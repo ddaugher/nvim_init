@@ -187,7 +187,7 @@ local on_attach = function(_, bufnr)
   -- require("cmp_nvim_lsp").default_capabilities(capabilities)
 end
 
-local path_to_elixirls = vim.fn.expand("/Users/Shared/elixir-ls/release/language_server.sh")
+local path_to_elixirls = vim.fn.expand("/Users/Shared/elixir-ls/language_server.sh")
 
 lspconfig.elixirls.setup({
   cmd = {path_to_elixirls},

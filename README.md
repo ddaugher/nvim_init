@@ -24,12 +24,13 @@ This repo is meant to be used as a starting point for a user's own configuration
   * ```
     asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
     asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git
+    asdf plugin add neovim
     asdf install
     ```
   * if you want to change the installed versions, you can update the .tool-versions file prior to installation
 * install elixir-ls language server
   * Download the latest release: [https://github.com/elixir-lsp/elixir-ls/releases/latest](https://github.com/elixir-lsp/elixir-ls/releases/latest) and unzip it into a directory of your choice
-  * within the lsp_config.lua file, update `"path_to_elixirls"` to point to the elixir-ls installation directory
+  * within the lua/core/plugin_config/lsp_config.lua file, update `"path_to_elixirls"` to point to the elixir-ls installation directory
   * for more information on the language server, https://github.com/elixir-lsp/elixir-ls
 * install gnu-sed
   * ```brew install gnu-sed```
@@ -39,7 +40,7 @@ This repo is meant to be used as a starting point for a user's own configuration
   * If you are currently using neovim, backup your previous configuration, additional info here -> [FAQ](#faq)
   * clone neovim_init from https://github.com/ddaugher/nvim_init into a directory of your choice
   * symbolically link your neovim_init directory to the neovim config location
-    * ```ln -s ~/.config/nvim [install location]/nvim_init```
+    * ```ln -s [install directory]/nvim_init ~/.config/nvim```
   * Start Neovim (`nvim`) from the command-line, installation will happen automatically
   * run `:PackerInstall` - ignore any error message about missing plugins, `:PackerInstall` will fix that shortly
   * Restart Neovim
