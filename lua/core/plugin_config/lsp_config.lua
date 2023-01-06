@@ -61,38 +61,6 @@ local lspconfig = require("lspconfig")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
--- -- Setup our autocompletion. These configuration options are the default ones
--- -- copied out of the documentation.
--- local cmp = require("cmp")
-
--- cmp.setup({
---   snippet = {
---     expand = function(args)
---       -- For `vsnip` user.
---       vim.fn["vsnip#anonymous"](args.body)
---     end,
---   },
---   mapping = {
---     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
---     ["<C-f>"] = cmp.mapping.scroll_docs(4),
---     ["<C-Space>"] = cmp.mapping.complete(),
---     ["<C-e>"] = cmp.mapping.close(),
---     ["<C-y>"] = cmp.mapping.confirm({ select = true }),
---   },
---   sources = {
---     { name = "nvim_lsp" },
---     { name = "vsnip" },
---   },
---   formatting = {
---     format = require("lspkind").cmp_format({
---       with_text = true,
---       menu = {
---         nvim_lsp = "[LSP]",
---       },
---     }),
---   },
--- })
-
 local on_attach = function(_, bufnr)
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
   -- to define small helper and utility functions so you don't have to repeat yourself
@@ -112,10 +80,11 @@ local on_attach = function(_, bufnr)
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-  -- nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+  nmap('ls', "<cmd>lua vim.lsp.buf.format()<cr>", '[L]sp [F]ormat')
+  nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
   nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
   nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
-  -- nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+  nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
   -- nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
   -- See `:help K` for why this keymap
@@ -130,6 +99,16 @@ local on_attach = function(_, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, '[W]orkspace [L]ist Folders')
 
+  nmap('S', "<cmd>lua require('spectre').open()<cr>", 'Open [S]pectre')
+  nmap('sw', "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", '[s]earch [w]ord')
+  nmap('fs', "<cmd>lua require('spectre').open_file_search()<cr>", '[f]ile [s]earch')
+
+  nmap('tc', "<cmd>lua require('neotest').run.run()<cr>", '[t]est [c]urrent test')
+  nmap('tf', "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>", '[t]est [f]ile')
+  nmap('tt', "<cmd>!mix test<cr>", '[t]es[t] entire project')
+  nmap('ss', "<cmd>lua require('neotest').summary.toggle()<cr>", '[s]ummary [t]oggle')
+  nmap('o', "<cmd>lua require('neotest').output.open({ enter = true })<cr>", '[o]utput open')
+
   -- Create a command `:Format` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     if vim.lsp.buf.format then
@@ -138,32 +117,6 @@ local on_attach = function(_, bufnr)
       vim.lsp.buf.formatting()
     end
   end, { desc = 'Format current buffer with LSP' })
-end
-
-local on_attach = function(_, bufnr)
-  local function map(...)
-    vim.api.nvim_buf_set_keymap(bufnr, ...)
-  end
-  local map_opts = {noremap = true, silent = true}
-
-  map("n", "df", "<cmd>lua vim.lsp.buf.format()<cr>", map_opts)
-  map("n", "gd", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>", map_opts)
-  map("n", "dt", "<cmd>lua vim.lsp.buf.definition()<cr>", map_opts)
-  map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", map_opts)
-  map("n", "gD", "<cmd>lua vim.lsp.buf.implementation()<cr>", map_opts)
-  map("n", "<c-k>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", map_opts)
-  map("n", "1gD", "<cmd>lua vim.lsp.buf.type_definition()<cr>", map_opts)
-
-  map("n", "tc", "<cmd>lua require('neotest').run.run()<cr>", map_opts)
-  map("n", "tf", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>", map_opts)
-  map("n", "tt", "<cmd>!mix test<cr>", map_opts)
-  map("n", "ss", "<cmd>lua require('neotest').summary.toggle()<cr>", map_opts)
-  map("n", "o", "<cmd>lua require('neotest').output.open({ enter = true })<cr>", map_opts)
-
-  map("n", "S", "<cmd>lua require('spectre').open()<cr>", map_opts)
-  map("n", "sw", "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", map_opts)
-  map("n", "s", "<leader>lua require('spectre').open_visual({select_word=true})<cr>", map_opts)
-  map("n", "fs", "<esc>lua require('spectre').open_file_search()<cr>", map_opts)
 
   -- These have a different style than above because I was fiddling
   -- around and never converted them. Instead of converting them
@@ -183,8 +136,6 @@ local on_attach = function(_, bufnr)
   vim.cmd [[inoremap <silent><expr> <C-f> compe#scroll({ 'delta': +4 })]]
   vim.cmd [[inoremap <silent><expr> <C-d> compe#scroll({ 'delta': -4 })]]
 
-  -- tell nvim-cmp about our desired capabilities
-  -- require("cmp_nvim_lsp").default_capabilities(capabilities)
 end
 
 local path_to_elixirls = vim.fn.expand("/Users/Shared/elixir-ls/language_server.sh")
