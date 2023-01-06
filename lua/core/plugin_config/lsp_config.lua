@@ -69,9 +69,9 @@ local on_attach = function(_, bufnr)
   -- In this case, we create a function that lets us more easily define mappings specific
   -- for LSP related items. It sets the mode, buffer and description for us each time.
   local nmap = function(keys, func, desc)
-    if desc then
-      desc = 'LSP: ' .. desc
-    end
+    -- if desc then
+    --   desc = 'LSP: ' .. desc
+    -- end
 
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
@@ -101,7 +101,7 @@ local on_attach = function(_, bufnr)
 
   nmap('S', "<cmd>lua require('spectre').open()<cr>", 'Open [S]pectre')
   nmap('sw', "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", '[s]earch [w]ord')
-  nmap('fs', "<cmd>lua require('spectre').open_file_search()<cr>", '[f]ile [s]earch')
+  -- nmap('sf', ":lua require('spectre').open_file_search()<cr>", '[s]earch [f]ile')
 
   nmap('tc', "<cmd>lua require('neotest').run.run()<cr>", '[t]est [c]urrent test')
   nmap('tf', "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>", '[t]est [f]ile')
