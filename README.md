@@ -37,14 +37,15 @@ This repo is meant to be used as a starting point for a user's own configuration
   * ```brew install ripgrep```
 * install neovim
   * If you are currently using neovim, backup your previous configuration, additional info here -> [FAQ](#faq)
-  * clone neovim_init from https://github.com/ddaugher/nvim_init into a directory of your choice
+  * clone neovim_init from https://github.com/ddaugher/nvim_init into a directory of your choice, my recomendation would be, /Users/Shared/elixir-ls... this will require no updates
+  to the configuration
   * symbolically link your neovim_init directory to the neovim config location
     * ```ln -s [install directory]/nvim_init ~/.config/nvim```
   * ```
     asdf plugin add neovim
     asdf install neovim stable
     asdf global neovim stable
-    ```  
+    ```
   * Start Neovim (`nvim`) from the command-line, installation will happen automatically
   * ignore any error message about missing plugins, `:PackerInstall` will fix that shortly
   * Restart Neovim

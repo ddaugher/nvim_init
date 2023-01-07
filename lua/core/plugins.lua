@@ -30,8 +30,8 @@ require('packer').startup(function(use)
   use("nvim-lua/plenary.nvim")
   use("YacineDo/mc.nvim")
   use("BurntSushi/ripgrep")
-  -- use("windwp/nvim-spectre")
-  use({"L3MON4D3/LuaSnip", tag = "v<1.1>.*"})
+  use("windwp/nvim-spectre")
+  use("L3MON4D3/LuaSnip")
   use 'saadparwaiz1/cmp_luasnip'
   use 'rafamadriz/friendly-snippets'
 
