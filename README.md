@@ -19,14 +19,6 @@ This repo is meant to be used as a starting point for a user's own configuration
 * Install asdf
   * https://asdf-vm.com/
   * following installation instructions
-* install erlang and elixir
-  * using `asdf` and the included `.tool-versions` file, the defined versions can be installed
-  * ```
-    asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
-    asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git
-    asdf install
-    ```
-  * if you want to change the installed versions, you can update the .tool-versions file prior to installation
 * install elixir-ls language server
   * Download the latest release: [https://github.com/elixir-lsp/elixir-ls/releases/latest](https://github.com/elixir-lsp/elixir-ls/releases/latest) and unzip it into a directory of your choice
   * within the lua/core/plugin_config/lsp_config.lua file, update `"path_to_elixirls"` to point to the elixir-ls installation directory
@@ -50,6 +42,14 @@ This repo is meant to be used as a starting point for a user's own configuration
   * ignore any error message about missing plugins, `:PackerInstall` will fix that shortly
   * Restart Neovim
   * you can check the health of neovim by ```:checkhealth```
+* install erlang and elixir
+  * using `asdf` and the included `.tool-versions` file, the defined versions can be installed automatically (make sure you are sitting in `cloned directory` in order to take advantage of the `.tool-versions` file.)
+  * ```
+    asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
+    asdf plugin add erlang https://github.com/asdf-vm/asdf-erlang.git
+    asdf install
+    ```
+  * if you want to change the installed versions, you can update the .tool-versions file prior to installation
 
 If there are language servers that you don't want to use, remove their configuration from your `luq/core/plugin_config/lsp_config.lua` after copy and pasting (for example, in the mason configuration).
 
