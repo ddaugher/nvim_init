@@ -51,17 +51,17 @@ This repo is meant to be used as a starting point for a user's own configuration
   * Restart Neovim
   * you can check the health of neovim by ```:checkhealth```
 
-If there are language servers that you don't want to use, remove their configuration from your `core/plugin_config/lsp_config.lua` after copy and pasting (for example, in the mason configuration).
+If there are language servers that you don't want to use, remove their configuration from your `luq/core/plugin_config/lsp_config.lua` after copy and pasting (for example, in the mason configuration).
 
 ### Configuration
 
 You could directly modify the `init.lua` file with your personal customizations. This option is the most straightforward, but if you update your config from this repo, you may need to reapply your changes.
 
-An alternative approach is to create a separate `plugin_config` module to register your own plugins. Leveraging this technique should make upgrading to a newer version of this repo easier.
+An alternative approach is to create a separate `plugin_config` module to register each of your own plugins. Leveraging this technique should make upgrading to a newer version of this repo easier.
 
 #### Example `nvim_tree.lua`
 
-The following is an example of a `plugins.lua` module (located at `$HOME/.config/nvim/lua/core/plugin_config/plugins.lua`) where you can register your own plugins.
+The following is an example of a `plugins lua` module (located at `$HOME/.config/nvim/lua/core/plugin_config/nvim_tree.lua`) where you can register your own plugins.
 
 ```
 vim.g.loaded_netrw = 1
@@ -77,11 +77,13 @@ vim.keymap.set('n', '<c-n>', ':NvimTreeFindFileToggle<CR>')
   * How do I find all of the available keymaps currently defined?
     * you can see available keymaps via ```:Telescope keymaps```
   * How do I config/instal/remove language servers?
-    * you can see/manage available language servers via ```:Mason```
+    * you can install/manage available language servers via ```:Mason```
+    * you will also need to add entry to ```servers section``` of `lua/core/plugin_config/lsp_config.lua` in order for neovim to recognize the LSP.
   * How are plugins managed?
     * plugins are managed via Packer, https://github.com/wbthomason/packer.nvim
   * What do I have to do if I make a change to the lua configuration?
     * changes to the lua configuration will be automatically detected and applied
+    * you can use `:PackerSync` to synchronize your neovim install with current versions
   * What should I do if I already have a pre-existing neovim configuration?
      * You should back it up, then delete all files associated with it.
      * This includes your existing init.lua and the neovim files in `.local` which can be deleted with `rm -rf ~/.local/share/nvim/`
