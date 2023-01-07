@@ -99,9 +99,11 @@ local on_attach = function(_, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, '[W]orkspace [L]ist Folders')
 
-  -- nmap('S', "<cmd>lua require('spectre').open()<cr>", 'Open [S]pectre')
-  -- nmap('sw', "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", '[s]earch [w]ord')
-  -- nmap('sf', ":lua require('spectre').open_file_search()<cr>", '[s]earch [f]ile')
+  --[[
+    nmap('S', "<cmd>lua require('spectre').open()<cr>", 'Open [S]pectre')
+    nmap('sw', "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", '[s]earch [w]ord')
+    nmap('sf', ":lua require('spectre').open_file_search()<cr>", '[s]earch [f]ile')
+  ]]
 
   nmap('tc', "<cmd>lua require('neotest').run.run()<cr>", '[t]est [c]urrent test')
   nmap('tf', "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>", '[t]est [f]ile')
@@ -117,25 +119,6 @@ local on_attach = function(_, bufnr)
       vim.lsp.buf.formatting()
     end
   end, { desc = 'Format current buffer with LSP' })
-
-  -- These have a different style than above because I was fiddling
-  -- around and never converted them. Instead of converting them
-  -- now, I'm leaving them as they are for this article because this is
-  -- what I actually use, and hey, it works ¯\_(ツ)_/¯.
-  vim.cmd [[imap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>']]
-  vim.cmd [[smap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>']]
-
-  vim.cmd [[imap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>']]
-  vim.cmd [[smap <expr> <Tab> vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<Tab>']]
-  vim.cmd [[imap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>']]
-  vim.cmd [[smap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>']]
-
-  vim.cmd [[inoremap <silent><expr> <C-Space> compe#complete()]]
---  vim.cmd [[inoremap <silent><expr> <CR> compe#confirm('<CR>')]]
-  vim.cmd [[inoremap <silent><expr> <C-e> compe#close('<C-e>')]]
-  vim.cmd [[inoremap <silent><expr> <C-f> compe#scroll({ 'delta': +4 })]]
-  vim.cmd [[inoremap <silent><expr> <C-d> compe#scroll({ 'delta': -4 })]]
-
 end
 
 local path_to_elixirls = vim.fn.expand("/Users/Shared/elixir-ls/language_server.sh")

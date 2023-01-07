@@ -26,14 +26,12 @@ require('packer').startup(function(use)
   -- Completion
   use 'hrsh7th/cmp-nvim-lsp'
   use("hrsh7th/cmp-cmdline")
-  use("hrsh7th/cmp-vsnip")
-  use("hrsh7th/vim-vsnip")
   use("onsails/lspkind-nvim")
   use("nvim-lua/plenary.nvim")
   use("YacineDo/mc.nvim")
   use("BurntSushi/ripgrep")
   -- use("windwp/nvim-spectre")
-  use 'L3MON4D3/LuaSnip'
+  use({"L3MON4D3/LuaSnip", tag = "v<1.1>.*"})
   use 'saadparwaiz1/cmp_luasnip'
   use 'rafamadriz/friendly-snippets'
 
