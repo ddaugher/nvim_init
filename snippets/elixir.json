@@ -1,0 +1,122 @@
+{
+	"|>": {
+		"scope": "",
+		"prefix": "pipe",
+		"body": [
+			"|> "
+		],
+		"description": "insert |>"
+	},
+	"@tag :debug_test": {
+		"scope": "",
+		"prefix": "debug",
+		"body": [
+			"@tag :debug_test$0"
+		],
+		"description": "insert :debug_test tag"
+	},
+	"@tag :integration_test": {
+		"scope": "",
+		"prefix": "integration",
+		"body": [
+			"@tag :integration_test$0"
+		],
+		"description": "insert :integration_test tag"
+	},
+	"@tag :unit_test": {
+		"scope": "",
+		"prefix": "unit",
+		"body": [
+			"@tag :unit_test$0"
+		],
+		"description": "insert :unit_test tag"
+	},
+	"@tag :run_this_test": {
+		"scope": "",
+		"prefix": "rtt",
+		"body": [
+			"@tag :run_this_test$0"
+		],
+		"description": "insert :run_this_test tag"
+	},
+	"^.*(word1|word2|word3).*\n": {
+		"scope": "",
+		"prefix": "sor",
+		"body": [
+			"^.*(word1|word2|word3).*\n"
+		],
+		"description": "insert ~D[2020-05-01]"
+	},
+	"~D[2020-05-01]": {
+		"scope": "",
+		"prefix": "date",
+		"body": [
+			"~D[2020-05-01]"
+		],
+		"description": "insert ~D[2020-05-01]"
+	},
+	"~U[2020-05-01 19:36:20.829428Z]": {
+		"scope": "",
+		"prefix": "datetime",
+		"body": [
+			"~U[2020-05-01 19:36:20.829428Z]"
+		],
+		"description": "insert ~U[2020-05-01 19:36:20.829428Z]"
+	},
+	"Date.range(~D[2020-05-01], ~D[2020-05-31])": {
+		"scope": "",
+		"prefix": "daterange",
+		"body": [
+			"Date.range(~D[2020-05-01], ~D[2020-05-31])"
+		],
+		"description": "insert Date.range(~D[2020-05-01], ~D[2020-05-31])"
+	},
+	"Decimal.new('0.00')": {
+		"scope": "",
+		"prefix": "deczer",
+		"body": [
+			"Decimal.new(\"0.00\")"
+		],
+		"description": "insert Decimal.new(\"0.00\")"
+	},
+	"fn x -> x end": {
+		"scope": "",
+		"prefix": "function",
+		"body": [
+			"fn x -> x end"
+		],
+		"description": "insert fn x -> x end"
+	},
+	"fn x, accum -> x + accum end": {
+		"scope": "",
+		"prefix": "functionaccum",
+		"body": [
+			"fn x, accum -> x + accum end"
+		],
+		"description": "insert fn x, accum -> x + accum end"
+	},
+	"IO.inspect infinity": {
+		"scope": "",
+		"prefix": "insinf",
+		"body": [
+			"IO.inspect($1, limit: :infinity)"
+		],
+		"description": "insert IO.inspect"
+	},
+	"IO.inspect \"HERE\"": {
+		"scope": "",
+		"prefix": "here",
+		"body": [
+			"IO.inspect \"HERE\""
+		],
+		"description": "insert IO.inspect \"HERE\""
+	},
+	"_ <- IO.inspect(),": {
+		"scope": "",
+		"prefix": "fakeprint",
+		"body": [
+			"_ <- IO.inspect(),"
+		],
+		"description": "_ <- IO.inspect($1, limit: :infinity),"
+	}
+}
