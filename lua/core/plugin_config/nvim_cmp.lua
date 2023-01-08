@@ -4,6 +4,7 @@ local luasnip = require 'luasnip'
 
 -- -- Add VS code like snippets
 require("luasnip.loaders.from_vscode").lazy_load()
+require("luasnip.loaders.from_lua").load({paths = "./snippets"})
 
 cmp.setup {
   snippet = {
