@@ -11,6 +11,7 @@ neovim_init targets *only* the latest ['stable'](https://github.com/neovim/neovi
 
 This repo is meant to be used as a starting point for a user's own configuration; remove the things you don't like and add what you do.
 
+-----
 ### Installation
 
 * Install Homebrew
@@ -53,13 +54,14 @@ This repo is meant to be used as a starting point for a user's own configuration
 
 If there are language servers that you don't want to use, remove their configuration from your `luq/core/plugin_config/lsp_config.lua` after copy and pasting (for example, in the mason configuration).
 
+-----
 ### Configuration
 
 You could directly modify the `init.lua` file with your personal customizations. This option is the most straightforward, but if you update your config from this repo, you may need to reapply your changes.
 
 An alternative approach is to create a separate `plugin_config` module to register each of your own plugins. Leveraging this technique should make upgrading to a newer version of this repo easier.
 
-#### Example `nvim_tree.lua`
+##### Example `nvim_tree.lua`
 
 The following is an example of a `plugins lua` module (located at `$HOME/.config/nvim/lua/core/plugin_config/nvim_tree.lua`) where you can register your own plugins.
 
@@ -72,7 +74,25 @@ require("nvim-tree").setup()
 -- Keymap to Toggle NTree
 vim.keymap.set('n', '<c-n>', ':NvimTreeFindFileToggle<CR>')
 ```
+-----
+### Snippets
+  * By default, [LauSnip](https://github.com/L3MON4D3/LuaSnip) will be installed as the  snippet library
+  * The [friendly-snippets collection](https://github.com/rafamadriz/friendly-snippets) has been installed and provides a considerably large collection of community snippets, including elixir.
+  * You can add personal snippets to the configuration utilizing the VSCode snippet format.  You can add your own snippets to 'language specific' json files or to the 'all' file, which will be available for all languages.
 
+-----
+### Default Keymaps
+##### All Contexts
+* `<leader>sf` - [S]earch [F]iles
+* `<leader>sf` - [S]earch [F]iles
+* `<cntrl>n` - Open Treesitter Explorer
+* `<leader>?` - [?] Find recently opened files
+* `<leader><leader>` - [ ] Find existing buffers
+* `<leader>/` - [/] Fuzzily search in current buffer]
+
+##### Language specific
+
+-----
 ### FAQ
   * How do I find all of the available keymaps currently defined?
     * you can see available keymaps via ```:Telescope keymaps```
