@@ -270,6 +270,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/djdaugherty/.local/share/nvim/site/pack/packer/start/vim-sleuth",
     url = "https://github.com/tpope/vim-sleuth"
+  },
+  ["vim-visual-multi"] = {
+    loaded = true,
+    path = "/Users/djdaugherty/.local/share/nvim/site/pack/packer/start/vim-visual-multi",
+    url = "https://github.com/mg979/vim-visual-multi"
   }
 }
 
