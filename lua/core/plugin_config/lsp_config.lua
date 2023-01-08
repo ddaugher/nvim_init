@@ -101,7 +101,7 @@ local on_attach = function(_, bufnr)
 
   nmap('S', "<cmd>lua require('spectre').open()<cr>", 'Open [S]pectre')
   nmap('sw', "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", '[s]earch [w]ord')
-  -- nmap('sf', ":lua require('spectre').open_file_search()<cr>", '[s]earch [f]ile')
+  nmap('sf', ":lua require('spectre').open_file_search({select_word=true})<cr>", '[s]earch [f]ile')
 
   nmap('tc', "<cmd>lua require('neotest').run.run()<cr>", '[t]est [c]urrent test')
   nmap('tf', "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>", '[t]est [f]ile')
