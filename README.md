@@ -85,7 +85,7 @@ vim.keymap.set('n', '<c-n>', ':NvimTreeFindFileToggle<CR>')
 ##### All Contexts
 * `<leader>sf` - [S]earch [F]iles
 * `<leader>sf` - [S]earch [F]iles
-* `<cntrl>n` - Open Treesitter Explorer
+* `<cntrl>t` - Open Treesitter Explorer
 * `<leader>?` - [?] Find recently opened files
 * `<leader><leader>` - [ ] Find existing buffers
 * `<leader>/` - [/] Fuzzily search in current buffer]

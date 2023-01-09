@@ -4,4 +4,4 @@ vim.g.loaded_netrwPlugin = 1
 require("nvim-tree").setup()
 
 -- Keymap to Toggle NTree
-vim.keymap.set('n', '<c-n>', ':NvimTreeFindFileToggle<CR>')
+vim.keymap.set('n', '<c-b>', ':NvimTreeFindFileToggle<CR>')

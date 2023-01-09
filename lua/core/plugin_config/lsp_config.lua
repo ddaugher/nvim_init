@@ -107,7 +107,7 @@ local on_attach = function(_, bufnr)
   nmap('tc', "<cmd>lua require('neotest').run.run()<cr>", '[t]est [c]urrent test')
   nmap('tf', "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>", '[t]est [f]ile')
   nmap('tt', "<cmd>!mix test<cr>", '[t]es[t] entire project')
-  nmap('ss', "<cmd>lua require('neotest').summary.toggle()<cr>", '[s]ummary [t]oggle')
+  nmap('<leader>j', "<cmd>lua require('neotest').summary.toggle()<cr>", '[s]ummary [t]oggle')
   nmap('o', "<cmd>lua require('neotest').output.open({ enter = true })<cr>", '[o]utput open')
 
   -- Create a command `:Format` local to the LSP buffer
