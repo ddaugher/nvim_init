@@ -42,6 +42,7 @@ This repo is meant to be used as a starting point for a user's own configuration
   * Start Neovim (`nvim`) from the command-line, installation will happen automatically
   * ignore any error message about missing plugins, `:PackerInstall` will fix that shortly
   * Restart Neovim
+  * install TreeSitter vim parser, ```:TSInstall vim```
   * you can check the health of neovim by ```:checkhealth```
 * install erlang and elixir
   * using `asdf` and the included `.tool-versions` file, the defined versions can be installed automatically (make sure you are sitting in `cloned directory` in order to take advantage of the `.tool-versions` file.)

@@ -32,3 +32,8 @@ vim.keymap.set('i', '<C-A>', '<ESC>I')
 vim.keymap.set('i', '<C-S-v>', '<C-r>+')
 vim.keymap.set('c', '<C-S-v>', '<C-r>+')
 vim.keymap.set('n', '<C-S-v>', '"+p')
+
+-- Spectre
+vim.keymap.set('n', 'S', "<cmd>lua require('spectre').open()<cr>", { desc = '[S]earch Project' })
+vim.keymap.set('n', 'sw', "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", { desc = "[S]earch [W]ord" })
+vim.keymap.set('n', 'sf', "<cmd>lua require('spectre').open_file_search()<cr>", { desc = "[S]earch [F]ile" })
