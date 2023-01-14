@@ -20,6 +20,7 @@ require('packer').startup(function(use)
   use 'ellisonleao/gruvbox.nvim'
   use 'nvim-tree/nvim-tree.lua'
   use 'nvim-tree/nvim-web-devicons'
+  use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
   use 'mg979/vim-visual-multi'
 
   use { "turbio/bracey.vim", run = "npm install --prefix server" }

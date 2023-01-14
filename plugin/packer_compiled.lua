@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/Users/djdaugherty/.local/share/nvim/site/pack/packer/start/bracey.vim",
     url = "https://github.com/turbio/bracey.vim"
   },
+  ["bufferline.nvim"] = {
+    loaded = true,
+    path = "/Users/djdaugherty/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
+    url = "https://github.com/akinsho/bufferline.nvim"
+  },
   ["cmp-cmdline"] = {
     loaded = true,
     path = "/Users/djdaugherty/.local/share/nvim/site/pack/packer/start/cmp-cmdline",

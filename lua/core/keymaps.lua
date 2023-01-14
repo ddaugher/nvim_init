@@ -21,8 +21,8 @@ vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", opts)
 --resize with arrows
 vim.api.nvim_set_keymap("n", "<A-Up>", ":resize +2<cr>", opts)
 vim.api.nvim_set_keymap("n", "<A-Down>", ":resize -2<cr>", opts)
-vim.api.nvim_set_keymap("n", "<A-Left>", ":vertical resize -2<cr>", opts)
-vim.api.nvim_set_keymap("n", "<A-Right>", ":vertical resize +2<cr>", opts)
+vim.api.nvim_set_keymap("n", "<A-Left>", ":vertical resize +2<cr>", opts)
+vim.api.nvim_set_keymap("n", "<A-Right>", ":vertical resize -2<cr>", opts)
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
@@ -50,3 +50,7 @@ vim.keymap.set('n', '<C-S-v>', '"+p')
 vim.keymap.set('n', 'S', "<cmd>lua require('spectre').open()<cr>", { desc = '[S]earch Project' })
 vim.keymap.set('n', 'sw', "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", { desc = "[S]earch [W]ord" })
 vim.keymap.set('n', 'sf', "<cmd>lua require('spectre').open_file_search()<cr>", { desc = "[S]earch [F]ile" })
+
+-- Bufferline
+vim.api.nvim_set_keymap("n", "<S-h>", ":BufferLineCyclePrev<cr>", opts)
+vim.api.nvim_set_keymap("n", "<S-L>", ":BufferLineCycleNext<cr>", opts)
