@@ -36,6 +36,7 @@ vim.keymap.set('n', '<ESC>', ':nohlsearch<CR>')
 vim.keymap.set('n', '<leader>w', ':w<CR>')
 vim.keymap.set('n', '<leader>q', ':q<CR>')
 vim.keymap.set('n', '<c-a-q>', ':qa!<CR>')
+vim.keymap.set('n', '<leader>q', ':enew<bar>bd #<CR>')
 
 -- Ctrl-E / A in insert mode to go to the end / start of the line
 vim.keymap.set('i', '<C-E>', '<ESC>A')
